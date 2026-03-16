@@ -16,3 +16,5 @@ pydantic-settings
 sse-starlette
 pytest
 pytest-asyncio
+pinecone-client
+langchain-pinecone

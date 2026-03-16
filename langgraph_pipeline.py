@@ -329,6 +329,10 @@ def end_node(state: PipelineState) -> dict:
             retry_attempts=retry_count,
             validation_status=report.get("status", "unknown"),
         )
+        
+    # Index to Pinecone Vector Database
+    from vector_store import index_company_data
+    index_company_data(state["company_name"], output_to_save["data"])
     
     return {}
 
