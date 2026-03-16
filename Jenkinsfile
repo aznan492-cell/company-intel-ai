@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('Initial Cleanup') {
             steps {
-                echo 'Cleaning up any old zombie containers...'
+                echo 'Cleaning up any old zombie containers...AUTOMATIC RUN'
                 // This removes containers from previous failed runs to prevent naming/port conflicts
                 sh "cd ${env.PROJECT_DIR} && docker-compose down --remove-orphans || true"
             }
