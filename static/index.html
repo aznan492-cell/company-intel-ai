@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Intelligence — AI-Powered Analysis</title>
+    <meta name="description"
+        content="Enter any company name and get a comprehensive AI-powered intelligence report powered by multiple LLMs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <!-- ── Background Glow ────────────────────────────────────────── -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon">🔬</span>
+                <span class="logo-text">Company Intel</span>
+            </div>
+            <nav class="nav">
+                <button class="nav-btn" id="btn-history" title="View History">
+                    <span>📋</span> History
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ── Main Content ───────────────────────────────────────────── -->
+    <main class="main">
+        <!-- SEARCH VIEW -->
+        <section id="view-search" class="view active">
+            <div class="hero">
+                <h1 class="hero-title">Company Intelligence</h1>
+                <p class="hero-subtitle">Enter any company name and get a comprehensive AI-powered analysis —
+                    financials, culture, leadership, strategy, and more.</p>
+
+                <form id="search-form" class="search-box" autocomplete="off">
+                    <div class="search-input-wrap">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="company-input" class="search-input"
+                            placeholder="e.g. SpaceX, Google, Tesla..." required autofocus>
+                    </div>
+                    <button type="submit" class="btn-analyze" id="btn-analyze">
+                        <span class="btn-text">Analyze</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+
+                <div class="powered-by">
+                    <span>Powered by</span>
+                    <span class="badge">Gemini</span>
+                    <span class="badge">Groq</span>
+                    <span class="badge">OpenRouter</span>
+                    <span class="badge">LangGraph</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROGRESS VIEW -->
+        <section id="view-progress" class="view">
+            <div class="progress-container">
+                <h2 class="progress-title">Analyzing <span id="progress-company" class="accent">...</span></h2>
+
+                <div class="pipeline-stages">
+                    <div class="stage" id="stage-research">
+                        <div class="stage-dot"></div>
+                        <div class="stage-info">
+                            <span class="stage-label">Research</span>
+                            <span class="stage-desc">Searching the web for current data</span>
+                        </div>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage" id="stage-extract">
+                        <div class="stage-dot"></div>
+                        <div class="stage-info">
+                            <span class="stage-label">Extract</span>
+                            <span class="stage-desc">Collecting data from 3 AI models</span>
+                        </div>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage" id="stage-consolidate">
+                        <div class="stage-dot"></div>
+                        <div class="stage-info">
+                            <span class="stage-label">Consolidate</span>
+                            <span class="stage-desc">Judge picks best data per field</span>
+                        </div>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage" id="stage-validate">
+                        <div class="stage-dot"></div>
+                        <div class="stage-info">
+                            <span class="stage-label">Validate</span>
+                            <span class="stage-desc">Rule-based checks & normalization</span>
+                        </div>
+                    </div>
+                    <div class="stage-connector"></div>
+                    <div class="stage" id="stage-done">
+                        <div class="stage-dot"></div>
+                        <div class="stage-info">
+                            <span class="stage-label">Complete</span>
+                            <span class="stage-desc">Results are ready</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="log-box" id="log-box">
+                    <div class="log-header">
+                        <span>📡 Live Pipeline Log</span>
+                        <span class="log-badge" id="log-badge">Streaming</span>
+                    </div>
+                    <div class="log-content" id="log-content"></div>
+                </div>
+
+                <p class="progress-hint">This usually takes 2–5 minutes. Sit back and relax ☕</p>
+            </div>
+        </section>
+
+        <!-- RESULTS VIEW -->
+        <section id="view-results" class="view">
+            <div class="results-header">
+                <div>
+                    <h2 class="results-title" id="results-company">Company Report</h2>
+                    <p class="results-meta" id="results-meta"></p>
+                </div>
+                <div class="results-actions">
+                    <button class="btn-secondary" id="btn-download">
+                        ⬇️ Download JSON
+                    </button>
+                    <button class="btn-secondary" id="btn-new-search">
+                        🔍 New Search
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-summary" id="results-summary"></div>
+
+            <div class="cards-grid" id="cards-grid"></div>
+        </section>
+
+        <!-- HISTORY VIEW -->
+        <section id="view-history" class="view">
+            <div class="history-container">
+                <div class="history-header">
+                    <h2>Analysis History</h2>
+                    <button class="btn-secondary" id="btn-back-home">← Back</button>
+                </div>
+                <div class="history-list" id="history-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

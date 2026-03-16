@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: company-intel
+Version: 0.1.0
+Summary: Self-healing company intelligence pipeline
+Requires-Dist: langchain
+Requires-Dist: langchain-google-genai
+Requires-Dist: langchain-groq
+Requires-Dist: langchain-openai
+Requires-Dist: langgraph
+Requires-Dist: pydantic
+Requires-Dist: python-dotenv

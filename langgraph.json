@@ -1,0 +1,10 @@
+{
+    "graphs": {
+        "company_intel": "./langgraph_pipeline.py:create_pipeline_graph"
+    },
+    "env": ".env",
+    "python_version": "3.11",
+    "dependencies": [
+        "."
+    ]
+}
